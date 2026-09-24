@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import "../components/Community.css";
 
 // Dados para a Galeria Polaroid
