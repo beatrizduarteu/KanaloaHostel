@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+
+.story-section {
+  background-color: #f5f0e6; /* Cor exata de fundo areia suave */
+  color: #12222a;
+  position: relative;
+  padding: 80px 0 100px;
+  overflow: hidden;
+}
+
+/* Badge 'SPIRIT' Círculo Escuro sobreposto ao centro */
+.spirit-badge {
+  position: absolute;
+  top: 15px;
+  left: 38%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  background-color: #0f1d24;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.infinity-symbol {
+  font-size: 1.2rem;
+  line-height: 1;
+  font-family: serif;
+}
+
+.badge-sub {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.48rem;
+  letter-spacing: 1.5px;
+  opacity: 0.75;
+  font-weight: 500;
+}
+
+/* Contentor Grid Principal */
+.story-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* LADO ESQUERDO: COMPOSIÇÃO VISUAL */
+.story-visuals {
+  position: relative;
+  height: 540px;
+  display: flex;
+  align-items: center;
+}
+
+/* Moldura Grande (Surf / Esquerda) */
+.organic-frame-main {
+  width: 78%;
+  height: 100%;
+  border-radius: 200px 200px 30px 200px; /* Curva ovalada idêntica */
+  overflow: hidden;
+  border: 6px solid #ffffff52; /* Moldura branca pura */
+  box-sizing: border-box; /* Garante que a borda não altera o tamanho */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* Moldura Pequena (Direita / Sobreposta) */
+.organic-frame-secondary {
+  position: absolute;
+  bottom: -25px;
+  right: 5%;
+  width: 52%;
+  height: 58%;
+  border-radius: 120px 120px 20px 120px;
+  overflow: hidden;
+  border: 7px solid #ffffff5e; /* Borda da cor do fundo */
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  z-index: 2;
+}
+
+/* EFEITO HOVER NAS IMAGENS (Aumenta ligeiramente ao passar o rato) */
+.frame-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.organic-frame-main:hover .frame-img,
+.organic-frame-secondary:hover .frame-img {
+  transform: scale(1.08); /* Aumenta a imagem suavemente */
+}
+
+/* LADO DIREITO: TEXTOS E TIPOGRAFIA */
+.story-content {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+}
+
+.story-subtitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  color: #3b4e58;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+/* Título Principal */
+.story-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4rem;
+  line-height: 1.02;
+  font-weight: 400;
+  color: #0f1d24; /* Azul escuro igual à imagem de referência */
+  margin-bottom: 32px;
+  letter-spacing: -0.5px;
+}
+
+.story-title em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 600;
+  color: #76bdbb; /* Azul-petróleo elegante */
+}
+
+/* Parágrafos de texto */
+.story-paragraphs p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: #3e505a;
+  font-weight: 400;
+  margin-bottom: 20px;
+  max-width: 530px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 992px) {
+  .story-container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .story-visuals {
+    height: 420px;
+  }
+
+  .story-title {
+    font-size: 3.2rem;
+  }
+
+  .spirit-badge {
+    left: 50%;
+  }
+}
+
+/* 🌺 HIBISCO INFERIOR ESQUERDO */
+.hibiscus-watermark {
+  position: absolute;
+  bottom: -45px;
+  left: -20px;
+  width: 270px;
+  height: 270px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hibiscus-watermark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scaleX(-1);
+  filter: opacity(0.2) grayscale(100%) sepia(100%) hue-rotate(340deg) brightness(0.6);
+  transition: all 0.3s ease;
+}
+
+/* 🌺 NOVO HIBISCO SUPERIOR DIREITO */
+.hibiscus-watermark-top-right {
+  position: absolute;
+  top: -45px;       /* Posição no topo */
+  right: -25px;     /* Posição à direita */
+  width: 280px;
+  height: 280px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hibiscus-watermark-top-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: rotate(-50deg); /* Ligeira rotação para criar assimetria estética */
+  filter: opacity(0.18) grayscale(100%) sepia(100%) hue-rotate(340deg) brightness(0.6);
+  transition: all 0.3s ease;
+}
+
+/* 🌊 VÍDEO DE ONDAS ESTILO SOMBRA / WATERMARK */
+.waves-video-watermark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0; /* Fica no fundo absoluto da secção */
+  overflow: hidden;
+  /* Blend mode ajuda a mesclar o vídeo com o tom areia do fundo */
+  mix-blend-mode: multiply; 
+}
+
+.waves-video-watermark video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+  /* 1. Transparência muito subtil para parecer uma sombra/água suave */
+  opacity: 0.12; 
+
+  /* 2. Filtro idêntico ao dos hibiscos para converter o vídeo para o tom da marca */
+  filter: grayscale(100%) sepia(100%) hue-rotate(340deg) brightness(0.7) contrast(1.2);
+}
+
+/* Garante que o texto e imagens ficam por cima do vídeo com legibilidade perfeita */
+.story-container {
+  position: relative;
+  z-index: 2;
+}
+
+.hibiscus-watermark,
+.hibiscus-watermark-top-right {
+  z-index: 1;
+}

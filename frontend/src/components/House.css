@@ -1,0 +1,444 @@
+/* 🏠 SECÇÃO DA CASA COMPLETA */
+.house-section {
+  background-color: #ede7db;
+  color: #12222a;
+  padding: 60px 0 110px;
+  position: relative;
+}
+
+.house-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Header Principal */
+.house-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 50px;
+}
+
+.house-subtitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 2.8px;
+  color: #3b4e58;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0px;
+}
+
+.house-title {
+  font-family: 'TikiTropic', serif;
+  font-size: 3.8rem;
+  letter-spacing: 2.8px;
+  line-height: 1.05;
+  font-weight: 400;
+  color: #0f1d24;
+  margin-bottom: 20px;
+}
+
+.house-title em {
+  font-style: italic;
+  font-weight: 600;
+  color: #76bdbb;
+}
+
+.house-description {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #4b5d67;
+}
+
+/* Barra de Estatísticas */
+/* Barra de Estatísticas */
+.house-stats-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  max-width: 850px;
+  margin: 0 auto 20px auto;
+  padding: 10px 0;
+}
+
+.stat-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6px 10px;
+  flex: 1;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.stat-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background-color: transparent;
+}
+
+/* 🌺 Flores mais pequenas */
+.stat-bg-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px; /* Reduzido de 95px para 65px */
+  height: 80px; /* Reduzido de 95px para 65px */
+  filter: grayscale(100%) sepia(100%) hue-rotate(340deg) brightness(0.6);
+  object-fit: contain;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+/* 🔢 Números mais pequenos */
+.stat-num {
+  position: relative;
+  z-index: 2;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.9rem; /* Reduzido de 2.1rem para 1.6rem */
+  font-weight: 600;
+  color: #0f1d24;
+  line-height: 1;
+  margin-bottom: 2px;
+  transition: color 0.3s ease;
+}
+
+/* 🏷️ Texto dos Rótulos mais pequeno */
+.stat-label {
+  position: relative;
+  z-index: 2;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.60rem; /* Reduzido de 0.68rem para 0.60rem */
+  color: #536670;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  transition: color 0.3s ease;
+}
+
+/* ✨ EFETOS DE HOVER (Quando passas o rato por cima do item) ✨ */
+
+/* 1. Revela a cor original do Hibisco e aumenta a opacidade */
+.stat-item:hover .stat-bg-icon {
+  filter: saturate(100%) brightness(0.9); /* Suaviza a vivacidade do vermelho */
+  opacity: 0.75; /* Mantém um toque suave sem ficar ultra brilhante */
+  
+}
+
+/* 2. Muda o número para Branco (com sombra leve para legibilidade) */
+.stat-item:hover .stat-num {
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* 3. Muda o texto do rótulo para Branco */
+.stat-item:hover .stat-label {
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Remove os divisores antigos caso ainda existam no JSX */
+.stat-divider {
+  display: none;
+}
+
+/* Responsivo para telemóvel */
+@media (max-width: 768px) {
+  .house-stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .stat-item:not(:last-child)::after {
+    display: none;
+  }
+}
+
+/* 🏷️ TÍTULOS DAS SUBSECÇÕES (Grupo) */
+.house-group-header {
+  margin-bottom: 28px;
+  margin-top: 10px;
+  border-bottom: 1px solid #dcd3c1;
+  padding-bottom: 16px;
+}
+
+.group-badge {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #76bdbb;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.house-group-header h3 {
+  font-family: 'TikiTropic', serif;
+  font-size: 2.2rem;
+  letter-spacing: 2.8px;
+  color: #0f1d24;
+  margin-bottom: 6px;
+}
+
+.house-group-header p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #536670;
+}
+
+/* Grelhas de Destaques (2 colunas para melhor proporção) */
+.house-features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-bottom: 65px;
+}
+
+.feature-card {
+  background-color: #f5f0e6;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Wrapper de Imagem / Slider */
+.feature-img-wrapper {
+  position: relative;
+  height: 280px;
+  width: 100%;
+  overflow: hidden;
+  background-color: #dcd3c1;
+}
+
+.feature-slider-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.4s ease;
+}
+
+.feature-tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background-color: rgba(15, 29, 36, 0.85);
+  color: #ffffff;
+  backdrop-filter: blur(6px);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+/* Setas do Slider */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.88);
+  color: #0f1d24;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease, background-color 0.2s ease;
+  z-index: 3;
+}
+
+.feature-card:hover .slider-arrow {
+  opacity: 1;
+}
+
+.slider-arrow:hover {
+  background-color: #ffffff;
+}
+
+.slider-arrow.prev {
+  left: 12px;
+}
+
+.slider-arrow.next {
+  right: 12px;
+}
+
+/* Pontos do Slider */
+.slider-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 3;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background-color: #ffffff;
+  width: 18px;
+  border-radius: 10px;
+}
+
+.feature-info {
+  padding: 24px 24px 28px;
+}
+
+.feature-info h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem;
+  color: #0f1d24;
+  margin-bottom: 10px;
+}
+
+.feature-info p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: #4b5d67;
+}
+
+/* Reviews */
+.house-reviews-banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.review-quote {
+  background-color: #0f1d24;
+  color: #f5f0e6;
+  padding: 32px 30px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.review-quote p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.review-author {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  color: #76bdbb;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Callout */
+.house-location-callout {
+  background-color: #f5f0e6;
+  border: 1px solid #dcd3c1;
+  padding: 30px 40px;
+  border-radius: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.callout-text h3 {
+  font-family: 'TikiTropic', serif;
+  letter-spacing: 0.3rem;
+  font-size: 1.5rem;
+  color: #0f1d24;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.callout-text p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  color: #3e505a;
+}
+
+.primary-book-btn {
+  background-color: #0f1d24;
+  color: #ffffff;
+  padding: 16px 36px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.primary-book-btn:hover {
+  background-color: #76bdbb;
+  color: #0f1d24;
+}
+
+/* Responsivo */
+@media (max-width: 992px) {
+  .house-features-grid,
+  .house-reviews-banner {
+    grid-template-columns: 1fr;
+  }
+
+  .house-location-callout {
+    flex-direction: column;
+    font-family: 'TikiTropic', serif;
+    gap: 20px;
+    text-align: center;
+  }
+
+/* Tamanho e proporção do ícone de localização */
+.location-icon {
+  width: 22px !important;
+  height: 22px !important;
+  max-width: 22px !important;
+  max-height: 22px !important;
+  object-fit: contain;
+  display: inline-block;
+  flex-shrink: 0; /* Impede que o flexbox tente esticar a imagem */
+}
+}

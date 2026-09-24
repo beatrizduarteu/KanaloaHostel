@@ -1,0 +1,109 @@
+.hero-section {
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  padding: 0 20px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+}
+
+/* Logótipo Central Grande */
+.hero-logo {
+  height: 120px;
+  width: auto;
+  margin-bottom: 0px;
+  opacity: 1;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
+}
+
+/* Nome Kanaloa sob o logótipo - MARGEM INFERIOR REDUZIDA PARA APROXIMAR O BOTÃO */
+.hero-title {
+  font-family: 'TikiTropic', sans-serif;
+  font-size: 1.7rem;
+  color: #fbfbfc;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+  margin-top: 0px;  
+  margin-bottom: 0px; /* Reduzido de 27px para 10px */
+}
+
+/* Removida a margem superior para colar ao título */
+.hero-buttons {
+  margin-top: 0px; 
+}
+
+/* Botão Container na Horizontal */
+.btn-book {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 320px;  /* Largura total do botão */
+  height: 90px;  /* Altura total */
+  text-decoration: none;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+}
+
+/* A forma da prancha rodada e ampliada */
+.btn-surfboard-shape {
+  position: absolute;
+  width: 70px;  
+  height: 200px; 
+  background-color: #e95f6f; /* Cor verde-água original */
+  
+  transform: rotate(90deg) scale(3); 
+
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  transition: background-color 0.3s ease;
+}
+
+/* Texto do Botão Centrado na Prancha */
+.btn-text {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  font-family: 'TikiTropic', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  
+  /* Ligeira compensação para alinhar o texto com a área útil da prancha */
+  margin-left: 8px; 
+  margin-top: 0px;
+  transition: color 0.3s ease;
+}
+
+/* Hover: Fundo Branco e Texto #63c0d1 */
+.btn-book:hover {
+  transform: translateY(-3px) scale(1.05);
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.5));
+}
+
+.btn-book:hover .btn-surfboard-shape {
+  background-color: #ffffff; /* Fundo passa a branco */
+}
+
+.btn-book:hover .btn-text {
+  color: #e95f6f; /* Texto passa para o azul original */
+  text-shadow: none;
+}
