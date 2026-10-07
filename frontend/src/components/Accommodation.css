@@ -1,0 +1,702 @@
+.accommodation-page {
+  --stay-sand: #ede7db;
+  --stay-paper: #fffdf8;
+  --stay-ink: #0f1d24;
+  --stay-muted: #52616a;
+  --stay-teal: #70b9b7;
+  min-height: 100vh;
+  padding: 58px 0 70px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 8% 38%, rgba(118, 189, 187, 0.12), transparent 24rem),
+    var(--stay-sand);
+  color: var(--stay-ink);
+}
+
+.accommodation-page,
+.accommodation-page * {
+  box-sizing: border-box;
+}
+
+.accommodation-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: none;
+  min-height: 540px;
+  margin: -58px 0 0;
+  padding: 76px 24px 84px;
+  text-align: center;
+}
+
+.accommodation-hero-video {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  overflow: hidden;
+  background: #456c70;
+}
+
+.accommodation-hero-video::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    rgba(12, 31, 37, 0.58) 0%,
+    rgba(12, 31, 37, 0.32) 55%,
+    rgba(12, 31, 37, 0.2) 100%
+  );
+  content: "";
+}
+
+.accommodation-hero-video video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 56%;
+}
+
+.accommodation-hero > :not(.accommodation-hero-video) {
+  position: relative;
+  z-index: 1;
+}
+
+.accommodation-eyebrow,
+.accommodation-card-kicker {
+  color: #5faeae;
+  font: 700 0.72rem/1.5 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+}
+
+.accommodation-hero .accommodation-eyebrow {
+  color: #b5e2dd;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+.accommodation-hero h1 {
+  max-width: 1000px;
+  margin: 17px 0 18px;
+  color: #fffdf8;
+  font: clamp(3.4rem, 5.6vw, 5.6rem)/1.02 'TikiTropic', serif;
+  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.24);
+}
+
+.accommodation-hero h1 span {
+  color: #91d4d0;
+}
+
+.accommodation-hero p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: rgba(255, 253, 248, 0.94);
+  font: clamp(1rem, 1.35vw, 1.2rem)/1.8 'Plus Jakarta Sans', sans-serif;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+
+.accommodation-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 27px;
+  padding: 15px 23px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+  background: #ef536c;
+  box-shadow: 0 12px 30px rgba(15, 29, 36, 0.22);
+  color: #fff;
+  font: 700 0.83rem 'Plus Jakarta Sans', sans-serif;
+  text-decoration: none;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.accommodation-hero-cta:hover {
+  transform: translateY(-3px);
+  background: #e94761;
+}
+
+.accommodation-hero-location {
+  margin-top: 24px;
+  color: rgba(255, 253, 248, 0.82);
+  font: 700 0.62rem 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: 0.2em;
+}
+
+.accommodation-stays {
+  position: relative;
+  isolation: isolate;
+  padding: 55px clamp(36px, 5vw, 76px) 0;
+  scroll-margin-top: 90px;
+}
+
+.accommodation-stays::before,
+.accommodation-stays::after {
+  position: absolute;
+  z-index: 0;
+  top: clamp(130px, 12vw, 180px);
+  width: clamp(180px, 20vw, 280px);
+  height: 460px;
+  background: url("../assets/polvo1.png") center top / contain no-repeat;
+  filter: grayscale(0.7) saturate(0.55);
+  mix-blend-mode: multiply;
+  opacity: 0.24;
+  pointer-events: none;
+  content: "";
+}
+
+.accommodation-stays::before {
+  left: -45px;
+  transform: rotate(-15deg);
+  transform-origin: center top;
+}
+
+.accommodation-stays::after {
+  right: -45px;
+  transform: rotate(15deg) scaleX(-1);
+  transform-origin: center top;
+}
+
+.accommodation-stays > * {
+  position: relative;
+  z-index: 1;
+}
+
+.accommodation-intro {
+  max-width: 840px;
+  margin: 0 auto 43px;
+  text-align: center;
+}
+
+.accommodation-intro h2 {
+  margin: 14px 0 14px;
+  color: var(--stay-ink);
+  font: clamp(2.3rem, 4vw, 3.35rem)/1.08 'TikiTropic', serif;
+}
+
+.accommodation-intro h2 span {
+  color: #61b4b3;
+}
+
+.accommodation-intro > p {
+  max-width: 690px;
+  margin: 0 auto;
+  color: var(--stay-muted);
+  font: 1rem/1.8 'Plus Jakarta Sans', sans-serif;
+}
+
+.accommodation-trust-line {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px 27px;
+  margin-top: 22px;
+  color: #617780;
+  font: 700 0.68rem 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: 0.04em;
+}
+
+.accommodation-trust-line span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.accommodation-trust-line i {
+  color: #54aaa9;
+  font-style: normal;
+}
+
+.accommodation-grid {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.accommodation-card {
+  --stay-accent: #4ba4a2;
+  --stay-tint: rgba(75, 164, 162, 0.13);
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(15, 29, 36, 0.07);
+  border-radius: 23px;
+  background: var(--stay-paper);
+  box-shadow: 0 14px 34px rgba(15, 29, 36, 0.07);
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.accommodation-card-maluhia {
+  --stay-accent: #368b98;
+  --stay-tint: rgba(54, 139, 152, 0.15);
+}
+
+.accommodation-card-ohana {
+  --stay-accent: #c28a4c;
+  --stay-tint: rgba(194, 138, 76, 0.15);
+}
+
+.accommodation-card-nalu {
+  --stay-accent: #e47a60;
+  --stay-tint: rgba(228, 122, 96, 0.15);
+}
+
+.accommodation-card:hover {
+  transform: translateY(-7px);
+  border-color: var(--stay-tint);
+  box-shadow: 0 24px 46px rgba(15, 29, 36, 0.13);
+}
+
+.accommodation-card:focus-visible {
+  outline: 3px solid var(--stay-accent);
+  outline-offset: 4px;
+}
+
+.accommodation-gallery {
+  position: relative;
+  isolation: isolate;
+  aspect-ratio: 1.5;
+  min-height: 300px;
+  overflow: hidden;
+  background: #b8ded9;
+}
+
+.accommodation-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.accommodation-photo {
+  display: block;
+  object-fit: cover;
+  transition: transform 550ms ease;
+}
+
+.accommodation-card:hover .accommodation-photo {
+  transform: scale(1.035);
+}
+
+.accommodation-slide-arrow {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  padding: 0 0 3px;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+  background: rgba(255, 253, 248, 0.9);
+  box-shadow: 0 4px 14px rgba(15, 29, 36, 0.15);
+  color: #17323a;
+  cursor: pointer;
+  font: 1.8rem/1 'Plus Jakarta Sans', sans-serif;
+  transform: translateY(-50%);
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.accommodation-slide-arrow:hover {
+  background: #fff;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.accommodation-slide-prev {
+  left: 14px;
+}
+
+.accommodation-slide-next {
+  right: 14px;
+}
+
+.accommodation-photo-count {
+  position: absolute;
+  z-index: 3;
+  right: 14px;
+  bottom: 14px;
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  background: rgba(15, 29, 36, 0.58);
+  color: #fff;
+  font: 700 0.65rem 'Plus Jakarta Sans', sans-serif;
+  backdrop-filter: blur(8px);
+}
+
+.accommodation-card-copy {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 29px 29px 27px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.accommodation-card-kicker {
+  color: var(--stay-accent);
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+}
+
+.accommodation-card h2 {
+  margin: 12px 0 10px;
+  color: var(--stay-ink);
+  font: 1.8rem/1.15 'TikiTropic', serif;
+}
+
+.accommodation-card .accommodation-card-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 15px;
+  color: #64747b;
+  font: 700 0.72rem/1.4 'Plus Jakarta Sans', sans-serif;
+}
+
+.accommodation-card-rating span {
+  color: #d79a3e;
+  font-size: 0.9rem;
+}
+
+.accommodation-card p {
+  margin: 0 0 17px;
+  color: var(--stay-muted);
+  font: 0.9rem/1.75 'Plus Jakarta Sans', sans-serif;
+}
+
+.accommodation-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 0 0 17px;
+}
+
+.accommodation-specs span {
+  padding: 7px 9px;
+  border: 1px solid var(--stay-tint);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--stay-tint) 70%, white);
+  color: #425960;
+  font: 700 0.6rem/1.2 'Plus Jakarta Sans', sans-serif;
+  white-space: nowrap;
+}
+
+.accommodation-highlights-label {
+  margin: 1px 0 8px;
+  color: #738a8e;
+  font: 700 0.58rem/1.4 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.accommodation-highlights {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 23px;
+  padding: 0;
+  list-style: none;
+}
+
+.accommodation-highlights li {
+  position: relative;
+  padding-left: 16px;
+  color: var(--stay-muted);
+  font: 0.72rem/1.5 'Plus Jakarta Sans', sans-serif;
+}
+
+.accommodation-highlights li::before {
+  position: absolute;
+  top: 0.55em;
+  left: 1px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--stay-accent);
+  content: "";
+}
+
+.accommodation-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding: 12px 16px;
+  border: 1px solid var(--stay-tint);
+  border-radius: 999px;
+  background: var(--stay-tint);
+  color: var(--stay-accent);
+  font: 700 0.72rem 'Plus Jakarta Sans', sans-serif;
+  text-decoration: none;
+  transition: gap 180ms ease, filter 180ms ease;
+}
+
+.accommodation-card:hover .accommodation-card-link {
+  gap: 12px;
+  filter: brightness(0.95);
+}
+
+.accommodation-lower {
+  position: relative;
+  isolation: isolate;
+  max-width: 1500px;
+  margin: 68px auto 0;
+}
+
+.accommodation-lower::before,
+.accommodation-lower::after {
+  position: absolute;
+  z-index: 0;
+  top: 22px;
+  width: clamp(170px, 18vw, 250px);
+  height: 360px;
+  background: url("../assets/polvo1.png") center top / contain no-repeat;
+  filter: grayscale(0.7) saturate(0.55);
+  mix-blend-mode: multiply;
+  opacity: 0.2;
+  pointer-events: none;
+  content: "";
+}
+
+.accommodation-lower::before {
+  left: -45px;
+  transform: rotate(-12deg);
+  transform-origin: center top;
+}
+
+.accommodation-lower::after {
+  right: -45px;
+  transform: scaleX(-1) rotate(12deg);
+  transform-origin: center top;
+}
+
+.accommodation-lower > * {
+  position: relative;
+  z-index: 1;
+}
+
+.accommodation-note {
+  margin: 40px auto 0;
+  color: #567178;
+  font: italic 1.1rem 'Cormorant Garamond', serif;
+  text-align: center;
+}
+
+.accommodation-help {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 23px;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 27px 32px;
+  border: 1px solid rgba(48, 127, 135, 0.16);
+  border-radius: 24px;
+  background: linear-gradient(110deg, rgba(210, 234, 225, 0.9), rgba(255, 253, 248, 0.92));
+  box-shadow: 0 15px 38px rgba(15, 29, 36, 0.06);
+}
+
+.accommodation-help-mark {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #fffdf8;
+  color: #3e999a;
+  font: 1.8rem 'TikiTropic', serif;
+}
+
+.accommodation-help .accommodation-card-kicker {
+  color: #3e999a;
+}
+
+.accommodation-help h2 {
+  margin: 6px 0 4px;
+  color: var(--stay-ink);
+  font: 1.45rem/1.2 'TikiTropic', serif;
+}
+
+.accommodation-help p {
+  margin: 0;
+  color: var(--stay-muted);
+  font: 0.82rem/1.6 'Plus Jakarta Sans', sans-serif;
+}
+
+.accommodation-help > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 13px 19px;
+  border-radius: 999px;
+  background: #17343a;
+  color: white;
+  font: 700 0.78rem 'Plus Jakarta Sans', sans-serif;
+  text-decoration: none;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.accommodation-help > a:hover {
+  transform: translateY(-2px);
+  background: #245158;
+}
+
+@media (max-width: 900px) {
+  .accommodation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .accommodation-card:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .accommodation-card:last-child .accommodation-gallery {
+    aspect-ratio: 1.7;
+  }
+}
+
+@media (max-width: 620px) {
+  .accommodation-page {
+    padding: 35px 0 50px;
+  }
+
+  .accommodation-hero {
+    width: 100%;
+    min-height: 440px;
+    margin: -35px 0 0;
+    padding: 56px 22px;
+  }
+
+  .accommodation-hero h1 {
+    font-size: 2.55rem;
+  }
+
+  .accommodation-hero-location {
+    font-size: 0.55rem;
+  }
+
+  .accommodation-stays {
+    padding: 42px 22px 0;
+  }
+
+  .accommodation-stays::before,
+  .accommodation-stays::after {
+    top: 170px;
+    width: 165px;
+    height: 330px;
+    opacity: 0.2;
+  }
+
+  .accommodation-stays::before {
+    left: -65px;
+  }
+
+  .accommodation-stays::after {
+    right: -65px;
+  }
+
+  .accommodation-intro {
+    margin-bottom: 29px;
+  }
+
+  .accommodation-intro h2 {
+    font-size: 2.2rem;
+  }
+
+  .accommodation-trust-line {
+    gap: 9px 16px;
+    font-size: 0.61rem;
+  }
+
+  .accommodation-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .accommodation-card:last-child {
+    grid-column: auto;
+  }
+
+  .accommodation-gallery {
+    min-height: 300px;
+    aspect-ratio: 1.3;
+  }
+
+  .accommodation-card:last-child .accommodation-gallery {
+    aspect-ratio: 1.3;
+  }
+
+  .accommodation-card-copy {
+    padding: 27px 24px 25px;
+  }
+
+  .accommodation-card h2 {
+    font-size: 1.8rem;
+  }
+
+  .accommodation-card p {
+    font-size: 0.93rem;
+  }
+
+  .accommodation-help {
+    grid-template-columns: auto 1fr;
+    gap: 15px;
+    padding: 22px;
+  }
+
+  .accommodation-lower {
+    margin-top: 44px;
+  }
+
+  .accommodation-lower::before,
+  .accommodation-lower::after {
+    width: 135px;
+    height: 280px;
+    opacity: 0.17;
+  }
+
+  .accommodation-lower::before {
+    left: -85px;
+  }
+
+  .accommodation-lower::after {
+    right: -85px;
+  }
+
+  .accommodation-help > a {
+    grid-column: 1 / -1;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accommodation-card,
+  .accommodation-photo,
+  .accommodation-slide-arrow,
+  .accommodation-card-link {
+    transition: none;
+  }
+
+  .accommodation-hero-cta,
+  .accommodation-help > a {
+    transition: none;
+  }
+}

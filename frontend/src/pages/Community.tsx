@@ -6,13 +6,13 @@ const polaroidPhotos = [
   {
     id: 1,
     url: "https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=600&q=80",
-    caption: "Sunset surf squad 🏄‍♂️",
+    caption: "Sunset surf squad",
     rotation: "-3deg",
   },
   {
     id: 2,
     url: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=600&q=80",
-    caption: "Family dinner in the garden 🍷",
+    caption: "Family dinner in the garden",
     rotation: "2.5deg",
   },
   {
@@ -24,20 +24,38 @@ const polaroidPhotos = [
   {
     id: 4,
     url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
-    caption: "Carcavelos morning check 🌊",
+    caption: "Costa morning check",
     rotation: "3deg",
   },
 ];
 
 // Estatísticas dos Hóspedes
-const originStats = [
-  { code: "DE", country: "Alemanha", flag: "🇩🇪", percentage: "35%" },
-  { code: "FR", country: "França", flag: "🇫🇷", percentage: "20%" },
-  { code: "GB", country: "Reino Unido", flag: "🇬🇧", percentage: "15%" },
-  { code: "NL", country: "Países Baixos", flag: "🇳🇱", percentage: "12%" },
-  { code: "PT", country: "Portugal", flag: "🇵🇹", percentage: "10%" },
-  { code: "OTHER", country: "Outros Países", flag: "🌍", percentage: "8%" },
+type GuestOrigin = {
+  code: string;
+  country: string;
+  flag: string;
+  percentage: string;
+  lon?: number;
+  lat?: number;
+  labelDx?: number;
+  labelDy?: number;
+};
+
+const originStats: GuestOrigin[] = [
+  { code: "DE", country: "Alemanha", flag: "🇩🇪", percentage: "35%", lon: 13.405, lat: 52.52, labelDx: 9, labelDy: 4 },
+  { code: "FR", country: "França", flag: "🇫🇷", percentage: "20%", lon: 2.3522, lat: 48.8566, labelDx: -9, labelDy: 15 },
+  { code: "GB", country: "Reino Unido", flag: "🇬🇧", percentage: "15%", lon: -0.1276, lat: 51.5072, labelDx: -9, labelDy: -7 },
+  { code: "NL", country: "Países Baixos", flag: "🇳🇱", percentage: "12%", lon: 4.9041, lat: 52.3676, labelDx: 9, labelDy: -9 },
+  { code: "PT", country: "Portugal", flag: "🇵🇹", percentage: "10%", lon: -9.1393, lat: 38.7223, labelDx: -9, labelDy: 14 },
+  { code: "OTHER", country: "", flag: "", percentage: "8%" },
 ];
+
+function projectToMap(lon: number, lat: number) {
+  return {
+    x: ((lon + 180) / 360) * 880,
+    y: ((90 - lat) / 180) * 507,
+  };
+}
 
 function Community() {
   useEffect(() => {
@@ -109,55 +127,51 @@ function Community() {
         <div className="origins-container">
           {/* LADO ESQUERDO: MAPA SVG INTERATIVO */}
           <div className="map-visual">
-            <svg viewBox="0 0 1000 500" className="world-map-svg">
-              {/* Continentes Ilustrativos de Fundo */}
-              <g className="landmasses">
-                {/* América do Norte */}
-                <path d="M120,80 Q200,60 280,120 T220,240 T100,180 Z" fill="#cbe6e5" />
-                {/* América do Sul */}
-                <path d="M220,260 Q280,270 290,360 T220,460 T180,340 Z" fill="#cbe6e5" />
-                {/* África */}
-                <path d="M460,180 Q560,180 580,280 T490,420 T440,260 Z" fill="#cbe6e5" />
-                {/* Ásia e Europa Geral */}
-                <path d="M440,70 Q600,50 850,110 T880,260 T650,220 T480,150 Z" fill="#cbe6e5" />
-                {/* Austrália */}
-                <path d="M780,320 Q860,310 880,380 T790,420 Z" fill="#cbe6e5" />
-              </g>
+            <svg viewBox="0 0 940 477" className="world-map-svg" role="img" aria-label="Mapa-mundo com pins nos países de origem dos hóspedes">
+              <image
+                className="world-map-base"
+                href="https://upload.wikimedia.org/wikipedia/commons/9/9f/BlankMap-World-Equirectangular.svg"
+                x="0"
+                y="0"
+                width="940"
+                height="477"
+                preserveAspectRatio="none"
+              />
 
-              {/* Destaque Europa Zoomed Region */}
-              <g className="highlighted-countries">
-                {/* Portugal */}
-                <circle cx="470" cy="165" r="14" fill="#76bdbb" opacity="0.3" />
-                <path d="M470,130 Q530,110 540,165 T480,175 Z" fill="#76bdbb" opacity="0.4" />
-              </g>
-
-              <g className="svg-pin" transform="translate(465, 168)">
-                <circle r="6" fill="#e06d53" />
-                <circle r="12" fill="#e06d53" opacity="0.3" className="pulse-circle" />
-                <foreignObject x="-60" y="-35" width="120" height="30">
-                  <div className="map-hub-tag">📍 Kanaloa Lodge</div>
+              {/* Localização do Kanaloa Surf Lodge, na região de Lisboa */}
+              <g className="svg-pin" transform={`translate(${projectToMap(-9.2, 38.6).x} ${projectToMap(-9.2, 38.6).y})`}>
+                <circle r="7" fill="#0f1d24" />
+                <line x1="-7" y1="0" x2="-25" y2="0" stroke="#0f1d24" strokeWidth="1.5" />
+                <foreignObject x="-151" y="-15" width="125" height="30">
+                  <div className="map-hub-tag">Kanaloa Lodge</div>
                 </foreignObject>
               </g>
 
-              <g className="svg-guest-pin" transform="translate(520, 125)">
-                <circle r="4" fill="#0f1d24" />
-                <circle r="9" fill="#76bdbb" opacity="0.5" className="pulse-circle" />
-              </g>
+              {originStats.map((item) => {
+                if (
+                  item.lon === undefined ||
+                  item.lat === undefined ||
+                  item.labelDx === undefined ||
+                  item.labelDy === undefined
+                ) return null;
+                const point = projectToMap(item.lon, item.lat);
+                const radius = 4 + Number(item.percentage.replace("%", "")) / 12;
 
-              <g className="svg-guest-pin" transform="translate(495, 140)">
-                <circle r="4" fill="#0f1d24" />
-                <circle r="9" fill="#76bdbb" opacity="0.5" className="pulse-circle" />
-              </g>
-
-              <g className="svg-guest-pin" transform="translate(485, 115)">
-                <circle r="4" fill="#0f1d24" />
-                <circle r="9" fill="#76bdbb" opacity="0.5" className="pulse-circle" />
-              </g>
-
-              <g className="svg-guest-pin" transform="translate(510, 115)">
-                <circle r="4" fill="#0f1d24" />
-                <circle r="9" fill="#76bdbb" opacity="0.5" className="pulse-circle" />
-              </g>
+                return (
+                  <g key={item.code} className="svg-guest-pin" transform={`translate(${point.x} ${point.y})`}>
+                    <title>{`${item.country}: ${item.percentage}`}</title>
+                    <circle r={radius} fill="#e06d53" stroke="#ffffff" strokeWidth="2" />
+                    <text
+                      className="map-country-code"
+                      x={item.labelDx}
+                      y={item.labelDy}
+                      textAnchor={item.labelDx < 0 ? "end" : "start"}
+                    >
+                      {item.code}
+                    </text>
+                  </g>
+                );
+              })}
             </svg>
           </div>
 

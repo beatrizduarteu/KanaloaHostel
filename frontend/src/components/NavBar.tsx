@@ -5,43 +5,63 @@ import logoImg from "../assets/logoImg.png";
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [accommodationOpen, setAccommodationOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 30) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const closeAccommodationMenu = () => setAccommodationOpen(false);
+
   return (
     <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="navbar-container">
-        {/* Logo (Esquerda) */}
-        <a href="#home" className="navbar-logo">
-          <img src={logoImg} alt="Kanaloa Logo" className="logo-image" />
+        <Link to="/" className="navbar-logo" aria-label="Kanaloa — página inicial">
+          <img src={logoImg} alt="" className="logo-image" />
           <span>KANALOA</span>
-        </a>
+        </Link>
 
-        {/* Links de Navegação + Botão (Empurrados para a Direita) */}
         <div className="navbar-right">
-          <nav className="navbar-links">
-            <a href="#book" className="nav-item">house</a>
-            <a href="#accom" className="nav-item">ACCOM</a>
+          <nav className="navbar-links" aria-label="Main navigation">
+            <div
+              className={`nav-dropdown ${accommodationOpen ? "is-open" : ""}`}
+              onMouseEnter={() => setAccommodationOpen(true)}
+              onMouseLeave={closeAccommodationMenu}
+              onKeyDown={(event) => {
+                if (event.key === "Escape") closeAccommodationMenu();
+              }}
+            >
+              <div className="nav-dropdown-heading">
+                <Link to="/accommodation" className="nav-item" onClick={closeAccommodationMenu}>
+                  Accommodation
+                </Link>
+              </div>
+
+              <div className="nav-dropdown-menu" id="accommodation-menu" aria-label="Kanaloa homes">
+                <Link to="/Ohana" className="nav-dropdown-link" onClick={closeAccommodationMenu}>
+                  <strong>ʻOhana House</strong>
+                  <span>Garden, hammocks & family time</span>
+                </Link>
+                <Link to="/Nalu" className="nav-dropdown-link" onClick={closeAccommodationMenu}>
+                  <strong>Nalu House</strong>
+                  <span>Sunny terrace by the beach</span>
+                </Link>
+                <Link to="/Maluhia" className="nav-dropdown-link" onClick={closeAccommodationMenu}>
+                  <strong>Maluhia House</strong>
+                  <span>A slower coastal hideaway</span>
+                </Link>
+              </div>
+            </div>
+
             <a href="#accom" className="nav-item">Our experience</a>
             <Link to="/community" className="nav-item">Community</Link>
-            <a href="#about" className="nav-item">ABOUT US</a>
-            <a href="#contact" className="nav-item">CONTACT</a>
+            <a href="#about" className="nav-item">About us</a>
+            <Link to="/contact" className="nav-item">Contact</Link>
           </nav>
 
-          <a href="#book" className="nav-book-btn">
-            BOOK NOW
-          </a>
+          <a href="#book" className="nav-book-btn">Book now</a>
         </div>
       </div>
     </header>

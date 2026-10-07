@@ -2,7 +2,7 @@ import "./Intro.css";
 import surfPic1 from "../assets/costas.jpg";
 import sunsetPic2 from "../assets/outside.jpg";
 import hibiscusImg from "../assets/hibiscus1.png";
-import wavesVideo from "../assets/waves.mp4"; // 👈 Importa o teu vídeo de ondas de alta qualidade (MP4 ou WebM)
+import wavesVideo from "../assets/waves.mp4"; 
 
 function Intro() {
   return (

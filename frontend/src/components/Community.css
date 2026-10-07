@@ -53,7 +53,7 @@
 .section-desc {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.95rem;
-  color: #4b5d67;
+  color: #67664b;
 }
 
 /* Secção do Widget ElfSight */
@@ -118,10 +118,10 @@
 }
 
 .polaroid-caption {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'TikiTropic', serif;
   font-style: italic;
   font-size: 1.15rem;
-  color: #12222a;
+  color: #71b5b3;
   text-align: center;
   margin-top: 15px;
   margin-bottom: 0;
@@ -152,19 +152,40 @@
 }
 
 .map-visual {
-  background-color: #e3f2f1;
   border-radius: 16px;
-  padding: 10px;
-  border: 1px solid #76bdbb;
+  padding: 0px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .world-map-svg {
+  display: block;
   width: 100%;
   height: auto;
   max-height: 320px;
+}
+
+.world-map-base {
+  filter: grayscale(1);
+  opacity: 1;
+}
+
+.svg-guest-pin {
+  cursor: help;
+}
+
+.map-country-code {
+  fill: #0f1d24;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  paint-order: stroke;
+  stroke: #ffffff;
+  stroke-width: 4px;
+  stroke-linejoin: round;
 }
 
 .map-hub-tag {
@@ -178,16 +199,6 @@
   text-align: center;
   white-space: nowrap;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
-
-.pulse-circle {
-  animation: svgPulse 2s infinite ease-out;
-  transform-origin: center;
-}
-
-@keyframes svgPulse {
-  0% { transform: scale(0.8); opacity: 0.8; }
-  100% { transform: scale(2.2); opacity: 0; }
 }
 
 /* Lista de Origens (Painel Direito) */
@@ -225,7 +236,8 @@
   font-size: 0.8rem;
   font-weight: 700;
   color: #666;
-  width: 30px;
+  flex: 0 0 58px;
+  width: 58px;
 }
 
 .flag {
