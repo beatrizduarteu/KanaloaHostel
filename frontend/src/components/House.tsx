@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./House.css";
 
 // Importa as tuas imagens
@@ -209,9 +210,9 @@ function House() {
             </h3>
             <p>⏱ <strong>20 mins</strong> to Lisbon Center &nbsp;|&nbsp; 🏖 <strong>6 mins</strong> to Beaches & Beach Clubs &nbsp;|&nbsp; 🚶 Walking distance to local brunch cafes</p>
           </div>
-          <a href="#book" className="primary-book-btn">
+          <Link to="/booking?stay=ohana" className="primary-book-btn">
             Book Entire Lodge
-          </a>
+          </Link>
         </div>
 
         {/* Reviews */}

@@ -1,4 +1,5 @@
 import "./Footer.css";
+import { Link } from "react-router-dom";
 import logoImg from "../assets/logoImg.png";
 
 function Footer() {
@@ -69,7 +70,7 @@ function Footer() {
               <div className="nav-col">
                 <h3>EXPLORE</h3>
                 <ul>
-                  <li><a href="#book">Book a stay</a></li>
+                  <li><Link to="/booking">Book a stay</Link></li>
                   <li><a href="#rooms">Rooms</a></li>
                   <li><a href="#community">Community</a></li>
                   <li><a href="#surf">Surf</a></li>

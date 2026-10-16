@@ -8,6 +8,7 @@ import Accommodation from "./pages/Accommodation";
 import Ohana from "./pages/Ohana";
 import Nalu from "./pages/Nalu";
 import Maluhia from "./pages/Maluhia";
+import Booking from "./pages/Booking";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "accommodation",
         element: <Accommodation />,
+      },
+      {
+        path: "booking",
+        element: <Booking />,
       },
       {
         path: "Ohana",

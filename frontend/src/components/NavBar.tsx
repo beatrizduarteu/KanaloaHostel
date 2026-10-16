@@ -61,7 +61,7 @@ function Navbar() {
             <Link to="/contact" className="nav-item">Contact</Link>
           </nav>
 
-          <a href="#book" className="nav-book-btn">Book now</a>
+          <Link to="/booking" className="nav-book-btn">Book now</Link>
         </div>
       </div>
     </header>

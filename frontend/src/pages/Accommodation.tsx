@@ -43,6 +43,10 @@ export type Stay = {
   highlights: string[];
   amenitySections: { title: string; items: string[] }[];
   houseRules: string[];
+  featuredAmenities?: { title: string; description: string }[];
+  guestAccess?: string;
+  hostProfile?: { name: string; details: string[] };
+  otherNotes?: string[];
   location: string;
   registration: string;
   url: string;
@@ -57,9 +61,9 @@ export const stays: Stay[] = [
     vibe: "A family escape",
     description: "A roomy, welcoming home for families and friends who want a local feel and space to slow down after a day on the coast.",
     fullDescription: [
-      "Just 20 minutes from Lisbon and six minutes from the beach, ʻOhana House feels close to everything while still offering a quiet escape. The home sits on a private, gated 980 m² plot with a leafy garden, hammocks, a barbecue and a fire pit under the lights.",
-      "Hosted by locals who know the neighbourhood, it is a relaxed base for beach days, cliff walks, local cafés and surf lessons. There is room for up to eight guests, four bedrooms, generous shared spaces and dedicated work areas with fast Wi-Fi.",
-      "Guests have private access to the whole house and garden, including the outdoor shower, workspaces, hammock area, barbecue and fire-pit space. A car is useful for exploring Lisbon, quieter beaches and the coast at your own pace.",
+      "Around 20 minutes from Lisbon and six minutes from the beach, ʻOhana House is close to the coast while still feeling like a quiet escape. Local brunch spots, relaxed cafés, beach clubs and cliffside walks are nearby.",
+      "The house is hosted by locals who grew up in the neighbourhood. Their local knowledge can help you find places to eat, explore the coast or arrange a surf lesson with Vittorio, the family’s local surf guide. Renting a car is useful for reaching Lisbon, quieter beaches and cliff walks at your own pace.",
+      "Set on a private, gated 980 m² plot, the home has a shaded garden with hammocks, a barbecue and a fire pit beneath string lights. Inside are four bedrooms, room for up to eight guests, shared living areas and desks in every bedroom, with Wi-Fi over 800 Mbps.",
     ],
     rating: "4.71 · 48 reviews",
     details: ["8 guests", "4 bedrooms", "5 beds", "2.5 baths"],
@@ -69,23 +73,40 @@ export const stays: Stay[] = [
       "980 m² gated garden · hammocks · fire pit · barbecue",
       "800+ Mbps Wi-Fi · workspace · smart check-in · parking for 3 cars",
     ],
+    featuredAmenities: [
+      { title: "Self check-in", description: "Arrive independently with the smart lock." },
+      { title: "Free parking", description: "On-site parking for up to three cars." },
+      { title: "Dedicated workspace", description: "Desks in all four bedrooms, with Wi-Fi over 800 Mbps." },
+    ],
     amenitySections: [
-      { title: "Garden & outdoors", items: ["Private, gated 980 m² garden with a lemon tree and wind chime", "Hammocks, outdoor dining furniture and loungers", "Barbecue, garden fire pit and outdoor shower", "Free parking for up to 3 cars"] },
-      { title: "Kitchen & dining", items: ["Fully equipped kitchen with gas stove and oven", "Dishwasher, microwave, fridge and freezer", "Coffee machine, kettle, blender, toaster and baking tray", "Cookware, tableware, wine glasses, barbecue tools and dining table"] },
-      { title: "Bedrooms & laundry", items: ["4 bedrooms · 5 beds · sleeps up to 8", "Bed linen, extra blankets, hangers and wardrobes", "Blackout blinds, iron and drying rack", "Free washing machine in the home"] },
-      { title: "Bathroom", items: ["Bathtub, bidet, hot water and hair dryer", "Shampoo, body wash, soap and cleaning products", "Private outdoor shower"] },
+      { title: "Garden & outdoors", items: ["Private, gated 980 m² garden with a shaded corner, lemon tree and wind chime", "Hammocks, outdoor dining furniture and sun loungers", "Barbecue with cooking tools, garden fire pit and outdoor shower", "Private patio and free parking on site or on the street"] },
+      { title: "Kitchen & dining", items: ["Fully equipped kitchen with gas stove and oven", "Dishwasher, microwave, fridge and freezer", "Coffee machine, electric kettle, wine glasses, toaster, baking tray and blender", "Cookware, oil, salt and pepper, tableware, barbecue tools, dining table, coffee and a waste compactor"] },
+      { title: "Bedrooms & laundry", items: ["4 bedrooms · 5 beds · sleeps up to 8", "A desk in each bedroom; a dedicated workspace is in a bedroom with a door", "Bed linen, extra blankets and pillows, hangers and wardrobes", "Blackout blinds, iron, clothes-drying rack and free washing machine"] },
+      { title: "Bathroom", items: ["Bathtub, bidet, hot water and hair dryer", "Shampoo, body wash, soap and cleaning products", "One en-suite bathroom is tucked behind a wardrobe door", "Outdoor shower"] },
       { title: "Work & entertainment", items: ["Dedicated workspace in a bedroom with a door", "Wi-Fi over 800 Mbps and wired Ethernet", "TV, books and reading material"] },
-      { title: "Comfort & family", items: ["Central air conditioning, portable fans, heater and radiators", "Wood-burning indoor fireplace with fireplace guards", "Window safety nets", "Travel cot available on request"] },
-      { title: "Check-in & services", items: ["Self check-in with smart lock and private entrance", "Private use of the entire house and garden", "Long stays of 28 days or more are welcome", "Bag drop may be available by arrangement"] },
+      { title: "Comfort & family", items: ["Central air conditioning, portable fans, portable heater and radiators", "Indoor wood-burning fireplace with fireplace guards", "Window safety nets", "Travel cot available on request"] },
+      { title: "Access & services", items: ["Self check-in with smart lock and private entrance", "Single-storey home with no stairs; a second entrance is available from another street", "Long stays of 28 days or more are welcome", "Bag drop may be available by arrangement; a laundry service is nearby"] },
+      { title: "Safety", items: ["Carbon monoxide alarm", "Fire extinguisher and first-aid kit", "The listing does not report a smoke alarm"] },
     ],
     houseRules: [
-      "Check-in after 16:00 · check-out by 11:00",
+      "Check-in after 16:00 · check-out by 10:00",
       "Maximum 8 guests · quiet hours must be respected",
-      "No pets. Smoking is not allowed inside; smoking is permitted in the garden only.",
-      "All guests must complete the registration form before check-in.",
-      "Basic supplies are provided for the first days. Lost keys or damage may incur a fee.",
+      "No pets. Smoking is not allowed indoors; it is permitted in the garden and backyard only.",
+      "Please clean up after cooking and take the rubbish out before checkout.",
+      "Lost keys or damage may incur a fee.",
     ],
-    location: "Charneca de Caparica, Portugal",
+    guestAccess: "Guests have private use of the whole house and garden, including the living areas, kitchen, bedrooms, workspaces, fire-pit area, outdoor shower, barbecue and hammocks.",
+    hostProfile: {
+      name: "Sofia",
+      details: ["3 years hosting · 67 host reviews · 4.7 average rating", "Speaks English and Portuguese", "Usually replies within an hour · 90% response rate"],
+    },
+    otherNotes: [
+      "For self check-in, guests are asked to verify their identity before arrival.",
+      "After booking, every guest must complete a registration form required by local authorities in Portugal.",
+      "Indoor smoking is strictly prohibited. If there is evidence of smoking inside, the host may charge a €200 fee.",
+      "Starter supplies are provided for the first days: shower gel, two toilet rolls per bathroom, eight coffee capsules, two dishwasher tablets and a bin bag.",
+    ],
+    location: "Charneca de Caparica, Setúbal, Portugal",
     registration: "139634/AL",
     url: "https://www.airbnb.pt/rooms/1141301707351062040",
     theme: "ohana",
@@ -180,7 +201,7 @@ export const stays: Stay[] = [
     houseRules: [
       "Check-in after 16:00 · check-out by 11:00",
       "Maximum 8 guests.",
-      "Please follow the house rules and local quiet hours shown in your Airbnb reservation.",
+      "Please follow the house rules and local quiet hours confirmed with your reservation.",
       "Registration details and arrival instructions are provided after booking.",
     ],
     location: "Charneca da Caparica, Portugal",
@@ -304,7 +325,7 @@ function Accommodation() {
         <h1>Find your place <span>by the sea.</span></h1>
         <p>
           Three homes, three coastal moods. Find the one that feels like yours, then
-          check photos, details and availability on Airbnb.
+          send a direct booking request here.
         </p>
         <a className="accommodation-hero-cta" href="#stays">
           Meet the three homes <span aria-hidden="true">↓</span>
@@ -319,7 +340,7 @@ function Accommodation() {
           <p>Big days together, sunny terrace afternoons, or a slower hideaway. Take a look around and choose the stay that feels right.</p>
           <div className="accommodation-trust-line">
             <span><i aria-hidden="true">✦</i> Real photos of each home</span>
-            <span><i aria-hidden="true">✦</i> Photos, details & availability on Airbnb</span>
+            <span><i aria-hidden="true">✦</i> Direct booking requests with Kanaloa</span>
           </div>
         </div>
 

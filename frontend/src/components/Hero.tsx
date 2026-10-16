@@ -1,4 +1,5 @@
 import "./Hero.css";
+import { Link } from "react-router-dom";
 import heroBg from "../assets/mainpic.png";
 import logoImg from "../assets/logoWhite.png";
 import surfboardImg from "../assets/surf.png"; // Import da imagem da prancha
@@ -14,7 +15,7 @@ function Hero() {
         <h1 className="hero-title">KANALOA SURF LODGE</h1>
 
         <div className="hero-buttons">
-          <a href="#book" className="btn-book">
+          <Link to="/booking" className="btn-book">
             <span 
               className="btn-surfboard-shape" 
               style={{
@@ -23,7 +24,7 @@ function Hero() {
               }}
             ></span>
             <span className="btn-text">BOOK NOW</span>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
